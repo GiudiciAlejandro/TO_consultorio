@@ -1,0 +1,21 @@
+:root{
+    --theme-color: white;
+    --primary-color: rgb(9, 36, 159);
+    --secondary-color: rgb(238, 204, 93);
+    --text-color-inverso: white;
+    --text-color: black;
+    --navbar-shallow-color:rgb(207, 210, 196);
+    --menu-mobile-backgroud-color: rgb(98, 95, 95);
+    --logo-color:rgb(197, 179, 115);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--theme-color);
+    color: var(--text-color);
+}
+
+a{
+    text-decoration: none;
+
+}
