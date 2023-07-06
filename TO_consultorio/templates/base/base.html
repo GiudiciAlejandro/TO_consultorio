@@ -6,82 +6,82 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!--Load boostrap app-->
-    {% load django_bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    {% bootstrap_messages %}
-
+ 
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    
     {% block extra_css %} {% endblock %}
 
     <title>Consultorio T.O.</title>
   </head>
+
   <body>
-    <header>
-      <!--Logo y barra de navegacion-->
-      <nav class="navbar navbar-expand-lg navStyle cabeza">
-        <a class="brand-navbar">
-          <img
-            src="{% static 'images/logo.png' %}"
-            id="Logo"
-            alt="Responsive image"
-            height="80px"
-        /></a>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto navList">
-            <li class="nav-item active">
-              <a class=" ml-auto ">Consultorio T.O.</a>
-            </li>
-          </ul>
+    <body>
+      <header class="topheader">  
+        <!--Logo y titulo-->  
+              <a href='#' class="logo">
+                  <img id="Logo" height="80" width="80" src="{% static 'images/base/logo.png' %}" alt="logo">
+              </a>  
+              <div> <a> Consultorio T.O. </a>  </div>
+              <div><a>{% block page_title %} {% endblock %}</a> </div>
+      </header>
+      <main class="ppal" >
+        <section>
+            <nav class="sidebar">
+                <ul class="menu_vertical">
+                    <a href="#" class="boton_menu">
+                        <img height="45" width="45" src="{% static 'images/base/paciente.png' %}" alt="Pacientes">
+                        <div class="item_menu">Pacientes</div>
+                    </a>
+                    <a href="#" class="boton_menu">
+                        <img height="45" width="45" src="{% static 'images/base/consultorio.png' %}" alt="Consultorios">
+                        <div class="item_menu">Consultorios</div>
+                    </a>
+                    <a href="#" class="boton_menu">
+                        <img height="45" width="45" src="{% static 'images/base/diagnostico.png' %}" alt="Diagnosticos">
+                        <div class="item_menu">Diagnosticos</div>
+                    </a>
+                    <a href="#" class="boton_menu">
+                        <img height="45" width="45" src="{% static 'images/base/contrato.png' %}" alt="Contratos">
+                        <div class="item_menu">Contratos</div>
+                    </a>
+                    <a href="#" class="boton_menu">
+                        <img height="45" width="45" src="{% static 'images/base/costos.png' %}" alt="Costos sesiones">
+                        <div class="item_menu">Costos sesiones</div>
+                    </a>
+                    <a href="#" class="boton_menu">
+                        <img height="45" width="45" src="{% static 'images/base/presupuesto.png' %}" alt="Presupuestos">
+                        <div class="item_menu">Presupuestos</div>
+                    </a>
+                    <a href="#" class="boton_menu">
+                        <img height="45" width="45" src="{% static 'images/base/obra_social.png' %}" alt="Obras sociales">
+                        <div class="item_menu">Obras sociales</div>
+                    </a>
+                    <a href="#" class="boton_menu">
+                        <img height="45" width="45" src="{% static 'images/base/turno.png' %}" alt="Turnos">
+                        <div class="item_menu">Turnos</div>
+                    </a>
+                    <a href="#" class="boton_menu">
+                        <img height="45" width="45" src="{% static 'images/base/comunicacion.png' %}" alt="Comunicaciones">
+                        <div class="item_menu">Comunicaciones</div>
+                    </a>
+                </ul>
+            </nav>
+        </section>
+        <div >
+          {% block contenido %} {% endblock %}
         </div>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto navList">
-            <li class="nav-item active">
-              <a class=" ml-auto ">{% block page_title %} {% endblock %}</a>
-            </li>
-          </ul>
-        </div>
-        {% if user.is_authenticated %}
-          <p class="textos">User: {{ user.get_username }}</p>
-        {% endif %}
-        <div class="btn-group dropstart">
-          <button
-            type="button"
-            class="btn btn-secondary dropdown-toggle"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Menu
-          </button>
-          <ul
-            class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start dropdown-menu-dark"
-          >
-            {% block menus %} {% endblock %}
-          </ul>
-        </div>
-        <hr class="separador" size="2px"/> 
-      </nav>
-      
-    </header>
-    <!--Messages-->
-    <!--Caja-->
-    
-    {% block contenido %} {% endblock %}
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    >
+    </main>
+
+    <script>
+      {% block scripts %} {% endblock %}
     </script>
-    {% block scripts %} {% endblock %}
     
   </body>
   <footer>
-    <div class="footer text-black text-center">
+    <div class="footer text-center">
       <p>Copyright M.I. Software dev. All rights reserved</p>
     </div>
   </footer>

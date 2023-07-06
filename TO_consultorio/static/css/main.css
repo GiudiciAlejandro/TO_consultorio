@@ -1,11 +1,13 @@
 :root{
-    --theme-color: white;
+    --theme-color: black;
     --primary-color: rgb(9, 36, 159);
     --secondary-color: rgb(238, 204, 93);
     --text-color-inverso: white;
     --text-color: black;
-    --navbar-shallow-color:rgb(207, 210, 196);
+    --navbar-shallow-color:rgb(11, 11, 10);
     --menu-mobile-backgroud-color: rgb(98, 95, 95);
+    --sidebar-width-pc:260px;
+    --sidebar-width-mobile:100px;
     --logo-color:rgb(197, 179, 115);
 }
 
@@ -13,9 +15,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--theme-color);
     color: var(--text-color);
+    min-width: 650px;
+    width: auto;
 }
 
 a{
     text-decoration: none;
-
 }
+

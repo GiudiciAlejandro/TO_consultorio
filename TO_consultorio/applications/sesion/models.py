@@ -2,7 +2,7 @@ from django.db import models
 from applications.facturacion.models import Factura
 from applications.contrato.models import Contrato
 
-class session(models.Model):
+class Session(models.Model):
     contrato=models.ForeignKey(Contrato, verbose_name="Contrato", on_delete=models.CASCADE)
     factura=models.ForeignKey(Factura, verbose_name="Factura", on_delete=models.CASCADE)
     date=models.DateField(verbose_name="Fecha", auto_now=False)

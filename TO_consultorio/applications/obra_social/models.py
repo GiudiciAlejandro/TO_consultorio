@@ -36,19 +36,19 @@ class Obra(models.Model):
     def get_absolute_url(self):
         return reverse("Obra_social_detail", kwargs={"pk": self.pk})
 
-class mail_os(models.Model):
+class Mail_os(models.Model):
     mail_type=models.CharField(verbose_name="Tipo de mail", max_length=50)
     mail=models.EmailField(verbose_name="email", max_length=254)
     obra=models.ForeignKey(Obra, verbose_name="Obra social", on_delete=models.CASCADE)
 
 
-class tel_os(models.Model):
+class Tel_os(models.Model):
     phone_type=models.CharField(verbose_name="Tipo de mail", max_length=50)
     phone=models.CharField(verbose_name="Teléfono", max_length=50)
     obra=models.ForeignKey(Obra, verbose_name="Obra social", on_delete=models.CASCADE)
 
 
-class intruction(models.Model):
+class Intruction(models.Model):
     instrction=models.TextField(verbose_name="Instructivo", max_length=2500)
     type=models.CharField(verbose_name="Tipo de instructivo", max_length=150)
     obra=models.ForeignKey(Obra, verbose_name="Obra social", on_delete=models.CASCADE)
