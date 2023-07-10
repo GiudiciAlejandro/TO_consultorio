@@ -1,0 +1,75 @@
+{% extends 'base/baseLog.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static '/css/login.css' %}"> 
+{% endblock %}
+
+{% block page_title %} Inicio de sesión {% endblock %}
+
+  {% block contenido %} 
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Su usuario no tiene permiso para acceder a este servicio.</p>
+    {% else %}
+      <p>Por favor ingrese para poder utilizar los servicios de Consultorio T.O.</p>
+    {% endif %}
+  {% endif %}
+  <main class=main>
+    <div class="container">
+      {% if messages %}
+        {% for message in messages %}
+          {% if message.tags == 'success' %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">&times;
+              </button>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      {% comment %} login section  {% endcomment %}
+      <section >
+          <div class="centro">
+           
+              <img src="{% static '/images/login/logeo.webp' %}"
+                 alt="Sample image">
+        
+           
+              <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                
+               
+                
+                  
+                  <!-- User input -->
+                  <div>
+                    <label class="datos" for="form3Example3">{{ form.username.label_tag }}</label>
+                    <div>{{ form.username }} </div>
+                  </div>
+                  
+                  <!-- Password input -->
+                  <div class="datos" >
+                    <label >{{ form.password.label_tag }}</label>
+                    <div >{{ form.password }} </div>
+                  </div>
+                  
+                  
+                  
+                  <div>
+                    <button type="submit" class="btn btn-primary btn-lg"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                    <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                      class="link-danger">Register</a></p>
+                  </div>
+              </form>
+
+          </div>
+       
+      </section>
+    </div>
+  </main>
+  {% endblock %}

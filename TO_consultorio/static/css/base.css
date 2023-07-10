@@ -20,8 +20,22 @@
 .logo{
     display: flex;
     font-family: cursive;
+    align-items:center;
+    width: 7vw;
 }
 
+
+.bloque_titulo{
+    display:flex;
+    width: 75vw;
+    align-items:center;
+    justify-content: center;
+
+}
+
+.nombre_app{
+    width: 18vw;
+}
 .logo img{
     border-radius: 50%; 
     margin: 10px;
@@ -71,7 +85,13 @@
     height: 100vh;
 }
 
-
+.ppal_log{
+    margin-left: o;
+    margin-top: 80px; 
+    padding: 20px;
+    background-color: rgb(164, 164, 187);
+    height: 100vh;
+}
 @media (max-width:950Px) {
     .sidebar{
         width: var(--sidebar-width-p);
@@ -89,3 +109,4 @@
     justify-content: center;
     
 }
+

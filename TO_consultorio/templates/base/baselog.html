@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Load boostrap app-->
+ 
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    
+    {% block extra_css %} {% endblock %}
+
+    <title>Consultorio T.O.</title>
+  </head>
+
+  <body>
+    <body>
+      <header class="topheader">  
+        <!--Logo y titulo-->  
+              <a href='#' class="logo">
+                  <img id="Logo" height="80" width="80" src="{% static 'images/base/logo.png' %}" alt="logo">
+              </a>  
+              <div class="nombre_app"> <a> Consultorio T.O. </a>  </div>
+              <div class="bloque_titulo"><a>{% block page_title %} {% endblock %}</a> </div>
+      </header>
+      <main class="ppal_log" >
+        
+        <div >
+          {% block contenido %} {% endblock %}
+        </div>
+    </main>
+
+    <script>
+      {% block scripts %} {% endblock %}
+    </script>
+    
+  </body>
+  <footer>
+    <div class="footer text-center">
+      <p>Copyright M.I. Software dev. All rights reserved</p>
+    </div>
+  </footer>
+</html>
