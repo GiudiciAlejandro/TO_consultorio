@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block extra_css %}
+    {% comment %} <link rel="stylesheet" href="{% static '/css/index.css' %}"> {% endcomment %}
+{% endblock %}
+
+{% block page_title %} Bienvenido {% endblock %}
+
+{% block menus %}
+<!-- Menu items for landing page -->
+<a href="#" class="boton_menu">
+    <img height="45" width="45" src="{% static 'images/base/logout.png' %}" alt="Comunicaciones">
+    <div class="item_menu">Salir</div>
+</a>  
+
+{% endblock %}
+  <!--Caja-->
+  {% block contenido %} 
+  <main class=main>
+
+    <div class="message">
+      <h3>Hola</h3>
+      <h4>listado de pacientes
+      </h4>
+    </div>
+  </main>
+  {% endblock %}

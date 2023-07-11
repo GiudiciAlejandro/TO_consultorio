@@ -31,7 +31,7 @@
         <section>
             <nav class="sidebar">
                 <ul class="menu_vertical">
-                    <a href="#" class="boton_menu">
+                    <a href="{% url 'lista_paciente' %}" class="boton_menu">
                         <img height="45" width="45" src="{% static 'images/base/paciente.png' %}" alt="Pacientes">
                         <div class="item_menu">Pacientes</div>
                     </a>
@@ -67,6 +67,7 @@
                         <img height="45" width="45" src="{% static 'images/base/comunicacion.png' %}" alt="Comunicaciones">
                         <div class="item_menu">Comunicaciones</div>
                     </a>
+                    {% block menus %}{% endblock %}
                 </ul>
             </nav>
         </section>
