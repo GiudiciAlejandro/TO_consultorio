@@ -9,4 +9,6 @@ from django.urls import reverse
 def startpage(request):
     return render(request,'inicio/startpage.html' )
 
-
+def logout_view(request):
+    logout(request)
+    return redirect('login')

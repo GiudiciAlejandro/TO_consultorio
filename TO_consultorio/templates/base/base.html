@@ -67,7 +67,13 @@
                         <img height="45" width="45" src="{% static 'images/base/comunicacion.png' %}" alt="Comunicaciones">
                         <div class="item_menu">Comunicaciones</div>
                     </a>
-                    {% block menus %}{% endblock %}
+                    <a href="{% url 'logout' %}" class="boton_menu">
+                      <img height="45" width="45" src="{% static 'images/base/logout.png' %}" alt="Comunicaciones">
+                      <div class="item_menu">Salir</div>
+                    </a> 
+                      {% block menus %}{% endblock %}
+                  
+                    
                 </ul>
             </nav>
         </section>
