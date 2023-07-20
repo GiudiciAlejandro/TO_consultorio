@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from applications.facturacion.models import Factura
 from applications.contrato.models import Contrato
 
@@ -9,6 +10,7 @@ class Session(models.Model):
     amount=models.DecimalField(verbose_name="Valor", max_digits=15, decimal_places=2)
     rent=models.DecimalField(verbose_name="Alquiler", max_digits=15, decimal_places=2)
     presents=models.BooleanField(verbose_name="Presente?", default=False)
+    
     class Meta:
         verbose_name = "session"
         verbose_name_plural = "sessions"
