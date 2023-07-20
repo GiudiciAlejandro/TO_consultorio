@@ -4,7 +4,7 @@
     {% comment %} <link rel="stylesheet" href="{% static '/css/detalles.css' %}"> {% endcomment %}
 {% endblock %}
 
-{% block page_title %} Pacientes {% endblock %}
+{% block page_title %} Detalle Pacientes {% endblock %}
 
 {% block menus %}
 <!-- Menu items for landing page -->
@@ -12,10 +12,9 @@
   <!--Caja-->
   {% block contenido %} 
     
-      <form method="GET"> {% csrf_token %}
-        <input type="text" id="kword" name="kword" placeholder="Ingrese el apellido">
-        <button type="submit">Buscar</button>
-      </form>
+     <h1>{{ paciente.surname }}</h1> 
+      {{ paciente.name }}
+      {{ paciente.p_address }}
       <div class="message">
         {% for paciente in pacientes %}
         <h3>{{ paciente.surname }} {{paciente.name}} </h3>

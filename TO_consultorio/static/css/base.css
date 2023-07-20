@@ -92,6 +92,13 @@
     background-color: rgb(164, 164, 187);
     height: 100vh;
 }
+
+
+.detalles{
+    margin-top: 70px;
+}
+
+
 @media (max-width:950Px) {
     .sidebar{
         width: var(--sidebar-width-p);
