@@ -20,8 +20,10 @@ class PacienteListview(ListView):
 
     def get_queryset(self): 
         buscado= self.request.GET.get("kword",'')
-        lista= Paciente.objects.filter(surname=buscado)
-        print(lista)
+        if buscado== "*" or buscado== "":
+            lista=Paciente.objects.all()
+        else:
+            lista= Paciente.objects.filter(surname=buscado)
         return lista
 
 
