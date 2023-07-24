@@ -26,7 +26,7 @@ urlpatterns = [
     #path('', include('applications.comunicacion.urls')),
     #path('', include('applications.consultorio.urls')),
     #path('', include('applications.contrato.urls')),
-    #path('', include('applications.diagnostico.urls')),
+    path('', include('applications.diagnostico.urls')),
     #path('', include('applications.facturacion.urls')),
     #path('', include('applications.obra_social.urls')),
     #path('', include('applications.presupuesto.urls')),

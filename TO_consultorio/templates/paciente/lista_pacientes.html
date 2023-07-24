@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block extra_css %}
-    {% comment %} <link rel="stylesheet" href="{% static '/css/detalles.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static '/css/detalles.css' %}"> 
 {% endblock %}
 
 {% block page_title %} Pacientes {% endblock %}
@@ -18,7 +18,8 @@
       </form>
       <div class="message">
         {% for paciente in pacientes %}
-        <h3>{{ paciente.surname }} {{paciente.name}} </h3>
+        <a href="{{ paciente.get_absolute_url }}">{{ paciente.surname  }}</a> ({{paciente.name}})
+       
         {% endfor %}
       </div>
 

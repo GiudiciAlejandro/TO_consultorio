@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block extra_css %}
+    {% comment %} <link rel="stylesheet" href="{% static '/css/detalles.css' %}"> {% endcomment %}
+{% endblock %}
+
+{% block page_title %} Diagnósticos {% endblock %}
+
+{% block menus %}
+<!-- Menu items for landing page -->
+{% endblock %}
+  <!--Caja-->
+  {% block contenido %} 
+    <form method="GET"> {% csrf_token %}
+      <input type="text" id="kword" name="kword" placeholder="Ingrese el CUD">
+      <button type="submit">Buscar</button>
+    </form>
+    <div >
+      {% for diagnostic in diagnostics %}
+      <ul>
+      <li  class="message"><a href="{{ diagnostic.get_absolute_url }}">{{ diagnostic.diagnostic  }}</a> </li>
+    </ul>
+      {% endfor %}
+    </div>
+  {% endblock %}
