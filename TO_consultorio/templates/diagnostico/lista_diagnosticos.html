@@ -9,17 +9,46 @@
 {% block menus %}
 <!-- Menu items for landing page -->
 {% endblock %}
+<div>
+  {% if messages %}
+    <ul class="messages list-group mb-3">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
   <!--Caja-->
   {% block contenido %} 
     <form method="GET"> {% csrf_token %}
       <input type="text" id="kword" name="kword" placeholder="Ingrese el CUD">
-      <button type="submit">Buscar</button>
+      <button class="btn btn-sm btn-light" type="submit">Buscar</button> 
+      <a class="btn btn-sm btn-light" href="{% url 'nuevo_diagnostico' %}">Agregar</a>  
     </form>
     <div >
       {% for diagnostic in diagnostics %}
       <ul>
-      <li  class="message"><a href="{{ diagnostic.get_absolute_url }}">{{ diagnostic.diagnostic  }}</a> </li>
+        <form method="POST" action="../eliminar_diag/{{diagnostic.id}}/">
+          {% csrf_token %}
+        <li  class="message"><a href="{{ diagnostic.get_absolute_url }}">{{ diagnostic.diagnostic  }}</a> 
+        <button class="btn btn-danger btn-sm" onclick="return eliminar();" type="submit">Eliminar
+        </button>
+
+      </li>
+      </form>
     </ul>
       {% endfor %}
     </div>
+  {% endblock %}
+
+  {% block scripts %} 
+  <script type="text/javascript">
+    function eliminar() {
+      var x = confirm("¿Está seguro de que desea eliminar el diagnóstico?");
+      if (x)
+        return true;
+      else
+        return false;
+    }
+  </script>
   {% endblock %}

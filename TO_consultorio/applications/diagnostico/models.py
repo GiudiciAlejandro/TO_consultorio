@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 class Diagnostico(models.Model):
-    diagnostic=models.CharField(verbose_name="Diagnóstico CUD", max_length=50)
+    diagnostic=models.CharField(verbose_name="Diagnóstico CUD", max_length=50, unique=True)
     
 
     class Meta:
