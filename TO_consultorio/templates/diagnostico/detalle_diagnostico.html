@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block extra_css %}
+    {% comment %} <link rel="stylesheet" href="{% static '/css/detalles.css' %}"> {% endcomment %}
+{% endblock %}
+
+{% block page_title %} Detalle diagnostico {% endblock %}
+
+{% block menus %}
+<!-- Menu items for landing page -->
+{% endblock %}
+  <!--Caja-->
+  {% block contenido %} 
+    
+     <h1>{{ diagnostico.diagnostic }}</h1> 
+     
+
+  {% endblock %}

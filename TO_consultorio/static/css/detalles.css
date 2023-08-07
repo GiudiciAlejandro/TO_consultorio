@@ -1,3 +1,8 @@
-.message a{
+.message {
     color: aliceblue;
+    background-color: azure;
+}
+
+td{
+    color: aliceblue; 
 }

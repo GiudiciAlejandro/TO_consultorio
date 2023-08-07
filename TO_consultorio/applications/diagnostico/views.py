@@ -34,7 +34,9 @@ class DiagListView(ListView):
 
 
 class DiagDetailView(DetailView):
-   pass
+   model = Diagnostico
+   template_name="diagnostico/detalle_diagnostico.html"
+   
 
 #Para eliminar un diagnostico
 class Eliminar_diag(SuccessMessageMixin, DeleteView): 
@@ -42,9 +44,23 @@ class Eliminar_diag(SuccessMessageMixin, DeleteView):
     form = Form_diagnostico
     fields = "__all__"     
     
-    #Reacrgo la página tras de eliminar el registro
+    #Recargo la página tras de eliminar el registro
     def get_success_url(self):
         # Mensaje que se mostrará cuando se elimine el registro
         success_message = 'Diagnóstico eliminado correctamente.'
+        messages.success (self.request, (success_message))       
+        return reverse('lista_diagnostico')
+
+class Update_diagnostico(SuccessMessageMixin,UpdateView):
+    model = Diagnostico
+    form = Form_diagnostico
+    fields = "__all__"
+    template_name = 'diagnostico/nuevo_diagnostico.html'
+    # Mensaje que se mostrará cuando se actualice el registro
+    success_message = 'Diagnóstico actualizado correctamente.'
+
+    def get_success_url(self):
+        # Mensaje que se mostrará cuando se elimine el registro
+        success_message = 'Diagnóstico actualizado correctamente.'
         messages.success (self.request, (success_message))       
         return reverse('lista_diagnostico')

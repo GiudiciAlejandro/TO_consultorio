@@ -19,36 +19,52 @@
   {% endif %}
 </div>
   <!--Caja-->
-  {% block contenido %} 
-    <form method="GET"> {% csrf_token %}
-      <input type="text" id="kword" name="kword" placeholder="Ingrese el CUD">
-      <button class="btn btn-sm btn-light" type="submit">Buscar</button> 
-      <a class="btn btn-sm btn-light" href="{% url 'nuevo_diagnostico' %}">Agregar</a>  
-    </form>
-    <div >
-      {% for diagnostic in diagnostics %}
-      <ul>
-        <form method="POST" action="../eliminar_diag/{{diagnostic.id}}/">
-          {% csrf_token %}
-        <li  class="message"><a href="{{ diagnostic.get_absolute_url }}">{{ diagnostic.diagnostic  }}</a> 
-        <button class="btn btn-danger btn-sm" onclick="return eliminar();" type="submit">Eliminar
-        </button>
+{% block contenido %} 
+  <form method="GET"> {% csrf_token %}
+    <input type="text" id="kword" name="kword" placeholder="Ingrese el CUD">
+    <button class="btn btn-sm btn-light" type="submit">Buscar</button> 
+    <a class="btn btn-sm btn-light" href="{% url 'nuevo_diagnostico' %}">Agregar</a>  
+  </form>
+  <div class = "message">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th width="35%">Nombre</th>
+          <th>Nombre diagnostico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Recorremos los registros de la tabla 'contactos' y los mostramos -->
+        {% for diagnostic in diagnostics %}
+        <tr>
+          <td>{{ diagnostic.diagnostic }}</td>
+          <td>
+          <!-- Formulario para eliminar un registro desde la misma tabla HTML -->   
+            <form method="POST" action="../eliminar_diag/{{diagnostic.id}}/">
+              {% csrf_token %}
+              <div class="btn-group">
+                <!-- Crear 3 botones Detalle, Editar y Eliminar -->
+                <a href="../update_diagnostico/{{diagnostic.id}}" title="Detalle" type="button" class="btn btn-success">Ver </a>
+                <a href="../update_diagnostico/{{diagnostic.id}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                <button class="btn btn-danger" onclick="return eliminar();" type="submit">Eliminar </button>
+              </div>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
 
-      </li>
-      </form>
-    </ul>
-      {% endfor %}
-    </div>
-  {% endblock %}
-
-  {% block scripts %} 
-  <script type="text/javascript">
-    function eliminar() {
-      var x = confirm("¿Está seguro de que desea eliminar el diagnóstico?");
-      if (x)
-        return true;
-      else
-        return false;
-    }
-  </script>
-  {% endblock %}
+{% block scripts %} 
+<script type="text/javascript">
+  function eliminar() {
+    var x = confirm("¿Está seguro de que desea eliminar el diagnóstico?");
+    if (x)
+      return true;
+    else
+      return false;
+  }
+</script>
+{% endblock %}
