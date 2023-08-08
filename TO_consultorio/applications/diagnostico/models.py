@@ -8,6 +8,7 @@ class Diagnostico(models.Model):
     class Meta:
         verbose_name = "Diagnostico"
         verbose_name_plural = "Diagnosticos"
+        ordering = ["diagnostic"]
     
     
     def __str__(self):

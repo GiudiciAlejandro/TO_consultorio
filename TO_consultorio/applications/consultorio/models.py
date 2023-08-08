@@ -18,6 +18,7 @@ class Consultorio(models.Model):
     class Meta:
         verbose_name = "Consultorio"
         verbose_name_plural = "Consultorios"
+        ordering = ["name"]
 
     def __str__(self):
         return self.name

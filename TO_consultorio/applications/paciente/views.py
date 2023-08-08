@@ -26,7 +26,7 @@ class PacienteListview(ListView):
         if buscado== "*" or buscado== "":
             lista=Paciente.objects.all()
         else:
-            lista= Paciente.objects.filter(surname=buscado)
+            lista= Paciente.objects.filter(surname__icontains=buscado)
         return lista
 
 
