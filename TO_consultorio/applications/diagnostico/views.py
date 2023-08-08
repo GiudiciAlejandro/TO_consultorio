@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib import messages 
 from django.contrib.messages.views import SuccessMessageMixin 
 from django.views.generic import ListView, CreateView, DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView
 from .forms import Form_diagnostico
 from .models import Diagnostico
 

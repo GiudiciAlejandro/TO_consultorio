@@ -11,6 +11,7 @@ class Pac_form(forms.ModelForm):
 
     def clean_birthdate(self):
         nacimiento = self.cleaned_data['birthdate']
+        print(nacimiento)
 
         #Check date is not in past.
         if nacimiento < datetime.date.today():

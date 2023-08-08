@@ -4,7 +4,7 @@
     {% comment %} <link rel="stylesheet" href="{% static '/css/index.css' %}"> {% endcomment %}
 {% endblock %}
 
-{% block page_title %} Pacientes {% endblock %}
+{% block page_title %} Nuevo paciente {% endblock %}
 
 {% block menus %}
 <!-- Menu items for landing page -->
@@ -14,9 +14,13 @@
   <main class=main>
 
     <div class="message">
-      <h3>Hola</h3>
-      <h4>Prueba
-      </h4>
+      <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+        <a href="{% url 'lista_paciente' %}" title="Cancelar" type="button" class="btn btn-sm btn-light">Cancelar </a>
+      </form>
+      
     </div>
   </main>
   {% endblock %}

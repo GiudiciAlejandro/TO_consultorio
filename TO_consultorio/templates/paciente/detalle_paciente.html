@@ -1,10 +1,10 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block extra_css %}
-    {% comment %} <link rel="stylesheet" href="{% static '/css/detalles.css' %}"> {% endcomment %}
+  <link rel="stylesheet" href="{% static '/css/detalles.css' %}"> 
 {% endblock %}
 
-{% block page_title %} Detalle Pacientes {% endblock %}
+{% block page_title %} Detalle Paciente {% endblock %}
 
 {% block menus %}
 <!-- Menu items for landing page -->
@@ -12,13 +12,20 @@
   <!--Caja-->
   {% block contenido %} 
     
-     <h1>{{ paciente.surname }}</h1> 
-      {{ paciente.name }}
-      {{ paciente.p_address }}
-      <div class="message">
-        {% for paciente in pacientes %}
-        <h3>{{ paciente.surname }} {{paciente.name}} </h3>
-        {% endfor %}
-      </div>
-
+  <form method="GET" action="">
+    {% csrf_token %}
+      <h4>Nombre:  {{ paciente.name }} </h4>
+      <h4>Apellido:  {{ paciente.surname }} </h4>
+      <h4>Fecha naimiento:  {{ paciente.birthdate }} </h4>
+      <h4>Dirección:  {{ paciente.p_address }} </h4>
+      <h4>Localidad:  {{ paciente.city }} </h4>
+      <h4>Mail ppal:  {{ paciente.mail1 }} </h4>
+      <h4>Mail sec:  {{ paciente.mail2 }} </h4>
+      <h4>Teléfono ppal:  {{ paciente.phone1 }} </h4>
+      <h4>Teléfono sec:  {{ paciente.phone2 }} </h4>
+      <h4>CUIT:  {{ paciente.cuit }} </h4>
+      
+  </form>
+    <a href="{% url 'lista_paciente' %}" title="Listo" type="button" class="btn btn-sm btn-light">Volver </a>
+    <a href="/update_paciente/{{paciente.id}}" title="Editar" type="button" class="btn btn-sm btn-primary">Editar </a>
   {% endblock %}
